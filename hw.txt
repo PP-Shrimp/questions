@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/hw.css"/>
+	</head>
+	<body>
+		<div class="nav">
+			<div class="inner">
+				<h1><a href="" class="logo"></a></h1>
+				<ul>
+					<li><a href="">
+						<span>官网首页</span><br />
+						<em>HOME</em>
+					</a></li>
+					<li><a href="">
+						<span>游戏资料</span><br />
+						<em>DATA</em>
+					</a></li>
+					<li><a href="">
+						<span>攻略中心</span><br />
+						<em>RAIDERS</em>
+					</a></li>
+					<li><a href="">
+						<span>赛事中心</span><br />
+						<em>MATCH</em>
+					</a></li>
+					<li><a href="">
+						<span>社区活动</span><br />
+						<em>COMMUNITY</em>
+					</a></li>
+					<li><a href="">
+						<span>玩家支持</span><br />
+						<em>PLAYER</em>
+					</a></li>
+				</ul>
+				<div class="login">
+					<a href="" class="icon"><img src="img/1.png"/></a>
+					<div class="welcome">
+						<a href="">欢迎登陆</a><br />
+						<p>登陆后查看游戏战绩</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="banner">
+			<div class="inner">
+				<a href="" class="formore"></a>
+				<div class="data">
+					<div class="first"  id="adv">
+						<a href=""><img src="img/11.jpg"/ class="change"></a>
+						<a href=""><img src="img/12.jpg"/></a>
+						<a href=""><img src="img/13.jpg"/></a>
+						<a href=""><img src="img/14.jpg"/></a>
+						<a href=""><img src="img/15.jpg"/></a>
+						<ul>
+							<li class="active">王者浪一夏</li>
+							<li>荣耀心悦行</li>
+							<li>鬼谷子故事站</li>
+							<li>KPL季后赛直播</li>
+							<li>欢乐王者</li>
+						</ul>
+					</div>
+					<div class="second">
+						<ul>
+							<li><a href="">全部</a></li>
+							<li><a href="">新闻</a></li>
+							<li><a href="">公告</a></li>
+							<li><a href="">活动</a></li>
+							<li><a href="">赛事</a></li>
+							<li><a href="">...</a></li>
+						</ul>
+					</div>
+					<div class="third">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var oAdv=document.getElementById("adv");
+			var aImgs=oAdv.getElementsByTagName('img');
+			var aAs=oAdv.getElementsByTagName('li');
+			var timer1=null;
+			var now;
+			for(var i=0;i<aAs.length;i++){
+				aAs[i].index=i;
+				aAs[i].onmouseover=function(){
+					clearInterval(timer1);
+					for(var j=0;j<aAs.length;j++){
+						aAs[j].className="";
+						aImgs[j].className="";
+					}
+					now=this.index;
+					this.className="active";
+					aImgs[this.index].className="change";
+				}
+				aAs[i].onmouseout=function(){
+					timer1=setInterval(auto,4000);
+				}
+	
+			}
+			function auto(){
+					for(var i=0;i<aAs.length;i++){
+						aAs[i].className="";
+						aImgs[i].className="";
+					}
+					now++;
+					if(now>aAs.length-1){
+						now=0;
+					}
+					aAs[now].className="active";
+					aImgs[now].className="change";
+				}
+			timer1=setInterval(auto,4000);
+		</script>
+	</body>
+</html>
