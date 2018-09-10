@@ -31,5 +31,10 @@ Angela.url = { //#URL
             relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
             segments: a.pathname.replace(/^\//, '').split('/')
         };
+    },
+    autoFullUrl: function(url) { //#自动补全http
+        url = url || document.location.href;
+        url = url.substr(0, 7).toLowerCase() == 'http://' ? url : 'http://' + url;
+        return url;
     }
 };
